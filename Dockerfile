@@ -22,17 +22,18 @@ CMD ["/sbin/my_init"]
  chown -R nobody:users /home
 
 
-RUN apt-get update 
+RUN apt-get update
+RUN apt-get upgrade -y
 RUN apt-get install -qy mc
 RUN apt-get install -qy tmux
-RUN apt-get install -qy php5-mysql
-RUN apt-get install -qy php5-mysqlnd
+RUN apt-get install -qy php7-mysql
+RUN apt-get install -qy php7-mysqlnd
 
 
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php5 php5-common curl libcurl3 php5-curl libapache2-mod-php5 php-xml-parser php5-gd php5-sqlite php5-mcrypt php5-tidy php5-cli php5-mysql inotify-tools libapache2-mod-proxy-html && \
+  apt-get install -qy apache2 php7 php7-common curl libcurl3 php7-curl libapache2-mod-php7 php-xml-parser php7-gd php7-sqlite php7-mcrypt php7-tidy php7-cli php7-mysql inotify-tools libapache2-mod-proxy-html && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
