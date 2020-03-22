@@ -23,17 +23,21 @@ CMD ["/sbin/my_init"]
 
 
 RUN apt-get update
+RUN update-alternatives --set php /usr/bin/php7.0
+RUN apt-get install python-software-properties
+RUN add-apt-repository ppa:ondrej/php
+RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -qy mc
 RUN apt-get install -qy tmux
-RUN apt-get install -qy php7-mysql
-RUN apt-get install -qy php7-mysqlnd
+RUN apt-get install -qy php7.1-mysql
+RUN apt-get install -qy php7.1-mysqlnd
 
 
 # Install proxy Dependencies
 RUN \
   apt-get update -q && \
-  apt-get install -qy apache2 php7 php7-common curl libcurl3 php7-curl libapache2-mod-php7 php-xml-parser php7-gd php7-sqlite php7-mcrypt php7-tidy php7-cli php7-mysql inotify-tools libapache2-mod-proxy-html && \
+  apt-get install -qy apache2 php7.1 php7.1-common curl libcurl3 php7.1-curl libapache2-mod-php7.1 php-xml-parser php7.1-gd php7.1-sqlite php7.1-mcrypt php7.1-tidy php7.1-cli php7.1-mysql inotify-tools libapache2-mod-proxy-html && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
