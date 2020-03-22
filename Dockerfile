@@ -23,7 +23,6 @@ CMD ["/sbin/my_init"]
 
 
 RUN apt-get update
-RUN update-alternatives --set php /usr/bin/php7.0
 RUN apt-get install python-software-properties
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
