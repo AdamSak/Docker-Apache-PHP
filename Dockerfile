@@ -34,8 +34,22 @@ RUN apt-get install -qy php7.1-mysqlnd
 
 # Install proxy Dependencies
 RUN \
-  apt-get update -q && \
-  apt-get install -qy apache2 php7.1 php7.1-common curl libcurl3 php7.1-curl libapache2-mod-php7.1 php-xml php7.1-gd php7.1-sqlite php7.1-mcrypt php7.1-tidy php7.1-cli php7.1-mysql inotify-tools && \
+  apt-get update -q
+  apt-get install -qy apache2
+  apt-get install -qy apache2php7.1 
+  apt-get install -qy apache2php7.1-common
+  apt-get install -qy apache2curl
+  apt-get install -qy apache2libcurl
+  apt-get install -qy apache2php7.1-curl
+  apt-get install -qy apache2libapache2-mod-php
+  apt-get install -qy apache2php-xml
+  apt-get install -qy apache2php7.1-gd
+  apt-get install -qy apache2php7.1-sqlite
+  apt-get install -qy apache2php7.1-mcrypt
+  apt-get install -qy apache2php7.1-tidy
+  apt-get install -qy apache2php7.1-cli
+  apt-get install -qy apache2php7.1-mysql
+  apt-get install -qy apache2inotify-tools
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
  
