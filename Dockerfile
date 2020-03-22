@@ -26,30 +26,30 @@ RUN apt-get update
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get upgrade -y
-RUN apt-get install -qy mc
-RUN apt-get install -qy tmux
-RUN apt-get install -qy php7.1-mysql
-RUN apt-get install -qy php7.1-mysqlnd
+RUN apt-get install -y mc
+RUN apt-get install -y tmux
+RUN apt-get install -y php7.1-mysql
+RUN apt-get install -y php7.1-mysqlnd
 
 
 # Install proxy Dependencies
-RUN apt-get update -q
-RUN apt-get install -qy apache2
-RUN apt-get install php7.1 libapache2-mod-php7.1 php7.1-mcrypt php7.1-cli php7.1-xml php7.1-zip php7.1-mysql php7.1-gd php7.1-imagick php7.1-recode php7.1-tidy php7.1-xmlrpc
-RUN apt-get install -qy php-curl
+RUN apt-get update -y
+RUN apt-get install -y apache2
+RUN apt-get install -y php7.1 libapache2-mod-php7.1 php7.1-mcrypt php7.1-cli php7.1-xml php7.1-zip php7.1-mysql php7.1-gd php7.1-imagick php7.1-recode php7.1-tidy php7.1-xmlrpc
+RUN apt-get install -y php-curl
 
-#RUN apt-get install -qy apache2php7.1 
-#RUN apt-get install -qy apache2php7.1-common
-#RUN apt-get install -qy apache2curl
+#RUN apt-get install -y apache2php7.1 
+#RUN apt-get install -y apache2php7.1-common
+#RUN apt-get install -y apache2curl
 
-RUN apt-get install -qy php-xml
-RUN apt-get install -qy php7.1-gd
-RUN apt-get install -qy php7.1-sqlite
-RUN apt-get install -qy php7.1-mcrypt
-RUN apt-get install -qy php7.1-tidy
-RUN apt-get install -qy php7.1-cli
-RUN apt-get install -qy php7.1-mysql
-RUN apt-get install -qy inotify-tools
+RUN apt-get install -y php-xml
+RUN apt-get install -y php7.1-gd
+RUN apt-get install -y php7.1-sqlite
+RUN apt-get install -y php7.1-mcrypt
+RUN apt-get install -y php7.1-tidy
+RUN apt-get install -y php7.1-cli
+RUN apt-get install -y php7.1-mysql
+RUN apt-get install -y inotify-tools
 RUN apt-get clean -y
 RUN rm -rf /var/lib/apt/lists/*
  
