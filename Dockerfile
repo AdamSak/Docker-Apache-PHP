@@ -23,7 +23,6 @@ CMD ["/sbin/my_init"]
 
 
 RUN apt-get update
-RUN apt-get install python-software-properties
 RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get upgrade -y
