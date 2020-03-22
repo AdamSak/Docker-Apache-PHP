@@ -33,25 +33,24 @@ RUN apt-get install -qy php7.1-mysqlnd
 
 
 # Install proxy Dependencies
-RUN \
-  apt-get update -q
-  apt-get install -qy apache2
-  apt-get install -qy apache2php7.1 
-  apt-get install -qy apache2php7.1-common
-  apt-get install -qy apache2curl
-  apt-get install -qy apache2libcurl
-  apt-get install -qy apache2php7.1-curl
-  apt-get install -qy apache2libapache2-mod-php
-  apt-get install -qy apache2php-xml
-  apt-get install -qy apache2php7.1-gd
-  apt-get install -qy apache2php7.1-sqlite
-  apt-get install -qy apache2php7.1-mcrypt
-  apt-get install -qy apache2php7.1-tidy
-  apt-get install -qy apache2php7.1-cli
-  apt-get install -qy apache2php7.1-mysql
-  apt-get install -qy apache2inotify-tools
-  apt-get clean -y && \
-  rm -rf /var/lib/apt/lists/*
+RUN apt-get update -q
+RUN apt-get install -qy apache2
+RUN apt-get install -qy apache2php7.1 
+RUN apt-get install -qy apache2php7.1-common
+RUN apt-get install -qy apache2curl
+RUN apt-get install -qy apache2libcurl
+RUN apt-get install -qy apache2php7.1-curl
+RUN apt-get install -qy apache2libapache2-mod-php
+RUN apt-get install -qy apache2php-xml
+RUN apt-get install -qy apache2php7.1-gd
+RUN apt-get install -qy apache2php7.1-sqlite
+RUN apt-get install -qy apache2php7.1-mcrypt
+RUN apt-get install -qy apache2php7.1-tidy
+RUN apt-get install -qy apache2php7.1-cli
+RUN apt-get install -qy apache2php7.1-mysql
+RUN apt-get install -qy apache2inotify-tools
+RUN apt-get clean -y
+RUN rm -rf /var/lib/apt/lists/*
  
 RUN \
   service apache2 restart && \
