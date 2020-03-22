@@ -103,3 +103,4 @@ ADD apache-run.sh /etc/service/apache/run
 RUN chmod +x /etc/service/apache/run
 ADD apache-finish.sh /etc/service/apache/finish
 RUN chmod +x /etc/service/apache/finish
+RUN a2enmod rewrite
