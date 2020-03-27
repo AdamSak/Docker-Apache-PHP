@@ -54,6 +54,8 @@ RUN \
   rm /etc/apache2/sites-available/* && \
   rm /etc/apache2/apache2.conf && \
   ln -s /config/proxy-config.conf /etc/apache2/sites-available/000-default.conf && \
+  ln -s /config/ossn.config.site /web/html/ossn/configurations/ossn.config.site && \
+  ln -s /config/ossn.config.db /web/html/ossn/configurations/ossn.config.db && \
   ln -s /var/log/apache2 /logs
 
 ADD proxy-config.conf /etc/apache2/000-default.conf
