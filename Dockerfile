@@ -42,7 +42,7 @@ RUN apt-get install -y php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-cli php
 
 # Additional stuff
 RUN apt-get install -y php7.4-json php7.4-opcache php7.4-readline apache2-utils vim curl zip \
-                       php7.4-gettext graphicsmagick imagemagic screen
+                       php7.4-gettext graphicsmagick screen
 
 RUN phpenmod mbstring
 
