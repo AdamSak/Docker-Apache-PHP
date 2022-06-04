@@ -36,7 +36,7 @@ RUN apt-get install -y php7.4-mysqlnd
 RUN apt-get update -y
 RUN apt-get install -y apache2
 RUN apt-get install -y php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-cli php7.4-xml php7.4-zip \
-                       php7.4-mysql php7.4-gd php7.4-imagick php7.4-recode php7.4-tidy php7.4-xmlrpc \
+                       php7.4-mysql php7.4-gd php7.4-imagick php7.4-tidy php7.4-xmlrpc \
                        php-curl php7.4-mbstring php7.4-soap php7.4-intl php7.4-ldap php7.4-imap php-xml \
                        php7.4-sqlite php7.4-mcrypt inotify-tools php7.4-common
 
