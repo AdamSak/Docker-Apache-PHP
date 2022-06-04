@@ -1,5 +1,5 @@
-FROM phusion/baseimage:0.11
-MAINTAINER nando
+FROM phusion/baseimage:jammy-1.0.0
+MAINTAINER adamsak
 
 # Set correct environment variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -15,11 +15,11 @@ CMD ["/sbin/my_init"]
 
 
 # Configure user nobody to match unRAID's settings
- RUN \
- usermod -u 99 nobody && \
- usermod -g 100 nobody && \
- usermod -d /home nobody && \
- chown -R nobody:users /home
+RUN \
+  usermod -u 99 nobody && \
+  usermod -g 100 nobody && \
+  usermod -d /home nobody && \
+  chown -R nobody:users /home
 
 
 RUN apt-get update
@@ -28,17 +28,23 @@ RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install -y mc
 RUN apt-get install -y tmux
-RUN apt-get install -y php7.1-mysql
-RUN apt-get install -y php7.1-mysqlnd
+RUN apt-get install -y php7.4-mysql
+RUN apt-get install -y php7.4-mysqlnd
 
 
 # Install proxy Dependencies
 RUN apt-get update -y
 RUN apt-get install -y apache2
-RUN apt-get install -y php7.1 libapache2-mod-php7.1 php7.1-mcrypt php7.1-cli php7.1-xml php7.1-zip \
-                       php7.1-mysql php7.1-gd php7.1-imagick php7.1-recode php7.1-tidy php7.1-xmlrpc \
-                       php-curl php7.1-mbstring php7.1-soap php7.1-intl php7.1-ldap php7.1-imap php-xml \
-                       php7.1-sqlite php7.1-mcrypt inotify-tools php7.1-common
+RUN apt-get install -y php7.4 libapache2-mod-php7.4 php7.4-mcrypt php7.4-cli php7.4-xml php7.4-zip \
+                       php7.4-mysql php7.4-gd php7.4-imagick php7.4-recode php7.4-tidy php7.4-xmlrpc \
+                       php-curl php7.4-mbstring php7.4-soap php7.4-intl php7.4-ldap php7.4-imap php-xml \
+                       php7.4-sqlite php7.4-mcrypt inotify-tools php7.4-common
+
+# Additional stuff
+RUN apt-get install -y php7.4-json php7.4-opcache php7.4-readline apache2-utils vim curl zip \
+                       php7.4-gettext graphicsmagick imagemagic screen
+
+RUN phpenmod mbstring
 
 RUN apt-get clean -y
 RUN rm -rf /var/lib/apt/lists/*
@@ -62,12 +68,12 @@ ADD ports.conf /etc/apache2/ports.conf
 
 # Manually set the apache environment variables in order to get apache to work immediately.
 RUN \
-echo www-data > /etc/container_environment/APACHE_RUN_USER && \
-echo www-data > /etc/container_environment/APACHE_RUN_GROUP && \
-echo /var/log/apache2 > /etc/container_environment/APACHE_LOG_DIR && \
-echo /var/lock/apache2 > /etc/container_environment/APACHE_LOCK_DIR && \
-echo /var/run/apache2.pid > /etc/container_environment/APACHE_PID_FILE && \
-echo /var/run/apache2 > /etc/container_environment/APACHE_RUN_DIR
+  echo www-data > /etc/container_environment/APACHE_RUN_USER && \
+  echo www-data > /etc/container_environment/APACHE_RUN_GROUP && \
+  echo /var/log/apache2 > /etc/container_environment/APACHE_LOG_DIR && \
+  echo /var/lock/apache2 > /etc/container_environment/APACHE_LOCK_DIR && \
+  echo /var/run/apache2.pid > /etc/container_environment/APACHE_PID_FILE && \
+  echo /var/run/apache2 > /etc/container_environment/APACHE_RUN_DIR
 
 # Expose Ports
 EXPOSE 80 443
