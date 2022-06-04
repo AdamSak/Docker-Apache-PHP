@@ -24,4 +24,4 @@ jobs:
       run: docker build . --file Dockerfile --tag adamsak/docker-apache-php7.4:$(date +%s)
       
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/docker-apache-php7.4
+      run: docker push ${{secrets.DOCKER_USER}}/docker-apache-php7.4:$(date +%s)
